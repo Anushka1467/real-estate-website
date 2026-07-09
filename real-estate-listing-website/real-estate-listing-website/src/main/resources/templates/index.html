@@ -1,17 +1,149 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
+<html lang="en"></html>
+
 <head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Real Estate Listing Website</title>
+
+    <link rel="stylesheet" th:href="@{/style.css}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
+
 <body>
 
-<h1>Welcome to Real Estate Listing Website</h1>
+<!-- NAVBAR -->
 
-<p>You have successfully logged in.</p>
+<nav class="navbar">
 
-<br>
+    <div class="logo">
+        <i class="fa-solid fa-house"></i>
+        RealEstate
+    </div>
 
-<a th:href="@{/logout}">Logout</a>
+    <ul>
+
+        <li><a th:href="@{/}">Home</a></li>
+
+        <li><a th:href="@{/properties}">Properties</a></li>
+
+        <li><a th:href="@{/properties/add}">Add Property</a></li>
+
+        <li><a th:href="@{/logout}">Logout</a></li>
+
+    </ul>
+
+</nav>
+
+<!-- HERO -->
+
+<section class="hero">
+
+    <div class="overlay">
+
+        <h1>Find Your Dream Home</h1>
+
+        <p>
+            Buy • Sell • Rent properties with confidence.
+        </p>
+
+        <div class="buttons">
+
+            <a th:href="@{/properties}" class="btn">
+                Browse Properties
+            </a>
+
+            <a th:href="@{/properties/add}" class="btn secondary">
+                Add Property
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- FEATURES -->
+
+<section class="features">
+
+    <h2>Why Choose Our Platform?</h2>
+
+    <div class="feature-container">
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-building"></i>
+
+            <h3>Verified Properties</h3>
+
+            <p>
+                Every property is verified before it is listed on our platform.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            <h3>Prime Locations</h3>
+
+            <p>
+                Discover properties in the best residential and commercial areas.
+            </p>
+
+        </div>
+
+        <div class="feature-card">
+
+            <i class="fa-solid fa-handshake"></i>
+
+            <h3>Trusted Service</h3>
+
+            <p>
+                Secure and reliable platform for buying, selling and renting.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!--ABOUT -->
+
+<section class="about">
+
+    <h2>About Us</h2>
+
+    <p>
+
+        Real Estate Listing Website is developed using Spring Boot,
+        Thymeleaf and MongoDB. It helps users browse, add,
+        update and manage real estate properties through a
+        simple and user-friendly interface.
+
+    </p>
+
+</section>
+
+<footer>
+
+    <p>
+
+        © 2026 Real Estate Listing Website | Developed by Anushka Gupta
+
+    </p>
+
+</footer>
 
 </body>
+
 </html>

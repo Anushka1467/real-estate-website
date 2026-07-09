@@ -1,4 +1,4 @@
-package com.realestate.listing.service.imp;
+package com.realestate.listing.service.impl;
 
 import com.realestate.listing.model.User;
 import com.realestate.listing.repository.UserRepository;

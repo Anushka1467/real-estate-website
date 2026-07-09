@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<html lang="en"></html>
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Property Details</title>
+
+    <link rel="stylesheet" th:href="@{/style.css}">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <a th:href="@{/}" class="logo">
+        <i class="fa-solid fa-house"></i>
+        RealEstate
+    </a>
+
+    <ul>
+
+        <li><a th:href="@{/}">Home</a></li>
+        <li><a th:href="@{/properties}">Properties</a></li>
+        <li><a th:href="@{/properties/add}">Add Property</a></li>
+        <li><a th:href="@{/logout}">Logout</a></li>
+
+    </ul>
+
+</nav>
+
+<!-- PROPERTY DETAILS -->
+
+<section class="details-section">
+
+    <div class="details-container">
+
+        <div class="image-section">
+
+            <img th:src="${property.imageUrl}" alt="Property Image">
+
+        </div>
+
+        <div class="info-section">
+
+            <h1 th:text="${property.title}"></h1>
+
+            <h2 class="price">
+
+                ₹ <span th:text="${#numbers.formatDecimal(property.price,0,'COMMA',0,'POINT')}"></span>
+
+            </h2>
+
+            <p>
+
+                <i class="fa-solid fa-location-dot"></i>
+
+                <strong> Address : </strong>
+
+                <span th:text="${property.address}"></span>,
+
+                <span th:text="${property.city}"></span>,
+
+                <span th:text="${property.state}"></span>
+
+            </p>
+
+            <p>
+
+                <strong>Property Type : </strong>
+
+                <span th:text="${property.propertyType}"></span>
+
+            </p>
+
+            <p>
+
+                <strong>Bedrooms : </strong>
+
+                <span th:text="${property.bedrooms}"></span>
+
+            </p>
+
+            <p>
+
+                <strong>Bathrooms : </strong>
+
+                <span th:text="${property.bathrooms}"></span>
+
+            </p>
+
+            <p>
+
+                <strong>Area : </strong>
+
+                <span th:text="${property.area}"></span> sq ft
+
+            </p>
+
+            <h3>Description</h3>
+
+            <p th:text="${property.description}"></p>
+
+            <div class="buttons">
+
+                <a th:href="@{/properties/edit/{id}(id=${property.id})}"
+                   class="btn">
+
+                    Edit
+
+                </a>
+
+                <a th:href="@{/properties/delete/{id}(id=${property.id})}"
+                   class="btn delete">
+
+                    Delete
+
+                </a>
+
+                <a th:href="@{/properties}"
+                   class="btn secondary">
+
+                    Back
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+</body>
+
+</html>
