@@ -62,22 +62,27 @@ A full-stack Real Estate Listing Website built using **Spring Boot**, **Thymelea
 - Git
 - GitHub
 
-##  Project Structure
+ ## 📂 Project Structure
 
+```
 src
-├── main
-│   ├── java
-│   │   └── com.realestate.listing
-│   │       ├── config
-│   │       ├── controller
-│   │       ├── model
-│   │       ├── repository
-│   │       ├── security
-│   │       ├── service
-│   │       └── service.impl
-│   └── resources
-│       ├── static
-│       └── templates
+└── main
+    ├── java
+    │   └── com
+    │       └── realestate
+    │           └── listing
+    │               ├── config
+    │               ├── controller
+    │               ├── model
+    │               ├── repository
+    │               ├── security
+    │               ├── service
+    │               └── service
+    │                   └── impl
+    └── resources
+        ├── static
+        └── templates
+```
 
 
 ##  Application Modules
