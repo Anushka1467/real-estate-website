@@ -82,7 +82,7 @@ html, body{
     color:#38bdf8;
 }
 
-/* Hero Section */
+/* Hero  */
 
 .hero{
 
@@ -119,9 +119,16 @@ html, body{
 }
 
 .buttons{
+
+    margin-top:auto;
+
     display:flex;
+
     justify-content:center;
-    gap:20px;
+
+    gap:15px;
+
+    padding-top:20px;
 }
 
 .btn{
@@ -287,7 +294,7 @@ footer{
 .properties-section{
 
     width:90%;
-    margin:50px auto;
+    margin:120px auto 50px;
 }
 
 .heading{
@@ -308,10 +315,11 @@ footer{
 
     display:grid;
 
-    grid-template-columns:
-    repeat(auto-fit,minmax(320px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(380px,1fr));
 
     gap:30px;
+
+    align-items:start;
 }
 
 .property-card{
@@ -325,6 +333,10 @@ footer{
     box-shadow:0 4px 15px rgba(0,0,0,.15);
 
     transition:.3s;
+
+    max-width:450px;
+
+    margin:auto;
 }
 
 .property-card:hover{
@@ -335,13 +347,21 @@ footer{
 .property-card img{
 
     width:100%;
-    height:320px;
-    object-fit:cover;
+    height:280px;
+    object-fit:contain;
+
+    background:#f5f5f5;
 }
 
 .property-content{
 
     padding:20px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    flex:1;
 }
 
 .property-content h2{
@@ -646,4 +666,183 @@ footer{
     text-align:center;
 
     margin-bottom:20px;
+}
+
+/* Search */
+
+.search-filter{
+
+    margin-bottom:35px;
+}
+
+.search-filter form{
+
+    display:flex;
+
+    gap:20px;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
+}
+
+.search-filter input,
+.search-filter select{
+
+    padding:12px;
+
+    width:260px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:16px;
+}
+
+/* Property Icons */
+
+.property-content p{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:12px;
+}
+
+.property-content i{
+
+    color:#2563eb;
+}
+
+/* Rating & Reviews */
+
+.rating-summary{
+
+    background:#f8fafc;
+
+    border-left:5px solid #f59e0b;
+
+    padding:20px;
+
+    margin:25px 0;
+
+    border-radius:10px;
+
+    box-shadow:0 2px 8px rgba(0,0,0,.08);
+}
+
+.rating-summary h3{
+
+    color:#f59e0b;
+
+    font-size:26px;
+
+    margin-bottom:10px;
+}
+
+.rating-summary p{
+
+    font-size:18px;
+
+    color:#555;
+}
+
+/* Review Form */
+
+.info-section form{
+
+    margin-top:25px;
+}
+
+.info-section form .form-group{
+
+    margin-bottom:20px;
+}
+
+.info-section form label{
+
+    display:block;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+}
+
+.info-section form input,
+.info-section form select,
+.info-section form textarea{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:16px;
+}
+
+.info-section form textarea{
+
+    resize:vertical;
+}
+
+.info-section form button{
+
+    margin-top:10px;
+}
+
+/* Reviews Section */
+
+.review-card{
+
+    background:white;
+
+    margin:25px 0;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    box-shadow:0 4px 12px rgba(0,0,0,.12);
+
+    transition:.3s;
+}
+
+.review-card:hover{
+
+    transform:translateY(-5px);
+}
+
+.review-card h3{
+
+    color:#2563eb;
+
+    margin-bottom:10px;
+}
+
+.review-card p{
+
+    margin-bottom:10px;
+
+    line-height:1.6;
+}
+
+.review-card small{
+
+    color:#777;
+
+    font-size:14px;
+}
+
+/* Customer Reviews Heading */
+
+.details-section h2{
+
+    margin-bottom:25px;
 }

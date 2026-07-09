@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="en"></html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -17,8 +16,6 @@
 </head>
 
 <body>
-
-<!-- NAVBAR -->
 
 <nav class="navbar">
 
@@ -38,8 +35,6 @@
 
 </nav>
 
-<!-- PROPERTY DETAILS -->
-
 <section class="details-section">
 
     <div class="details-container">
@@ -55,87 +50,174 @@
             <h1 th:text="${property.title}"></h1>
 
             <h2 class="price">
-
-                ₹ <span th:text="${#numbers.formatDecimal(property.price,0,'COMMA',0,'POINT')}"></span>
-
+                ₹
+                <span th:text="${#numbers.formatDecimal(property.price,0,'COMMA',0,'POINT')}"></span>
             </h2>
 
-            <p>
+            <div class="rating-summary">
 
+                <h3>
+                    ⭐ Average Rating :
+                    <span th:text="${#numbers.formatDecimal(averageRating,1,1)}"></span>/5
+                </h3>
+
+                <p>
+                    <span th:text="${reviewCount}"></span> Review(s)
+                </p>
+
+            </div>
+
+            <p>
                 <i class="fa-solid fa-location-dot"></i>
 
-                <strong> Address : </strong>
+                <strong>Address :</strong>
 
                 <span th:text="${property.address}"></span>,
-
                 <span th:text="${property.city}"></span>,
-
                 <span th:text="${property.state}"></span>
-
             </p>
 
             <p>
-
-                <strong>Property Type : </strong>
-
+                <strong>Property Type :</strong>
                 <span th:text="${property.propertyType}"></span>
-
             </p>
 
             <p>
-
-                <strong>Bedrooms : </strong>
-
+                <strong>Bedrooms :</strong>
                 <span th:text="${property.bedrooms}"></span>
-
             </p>
 
             <p>
-
-                <strong>Bathrooms : </strong>
-
+                <strong>Bathrooms :</strong>
                 <span th:text="${property.bathrooms}"></span>
-
             </p>
 
             <p>
-
-                <strong>Area : </strong>
-
+                <strong>Area :</strong>
                 <span th:text="${property.area}"></span> sq ft
-
             </p>
 
             <h3>Description</h3>
 
             <p th:text="${property.description}"></p>
 
+            <hr>
+
+            <!-- ================= REVIEW FORM ================= -->
+
+            <h2>Leave a Review</h2>
+
+            <form th:action="@{/reviews/save}" method="post">
+
+                <input type="hidden"
+                  name="propertyId"
+                  th:value="${property.id}" />
+
+                <div class="form-group">
+
+                  <label>Your Name</label>
+
+                  <input type="text"
+                   name="userName"
+                   placeholder="Enter your name"
+                   required>
+
+                </div>
+
+               <div class="form-group">
+
+                 <label>Rating</label>
+
+                <select name="rating" required>
+
+                  <option value="5">★★★★★</option>
+                  <option value="4">★★★★☆</option>
+                  <option value="3">★★★☆☆</option>
+                  <option value="2">★★☆☆☆</option>
+                  <option value="1">★☆☆☆☆</option>
+
+                </select>
+
+              </div>
+
+            <div class="form-group">
+
+             <label>Comment</label>
+
+               <textarea
+                  name="comment"
+                  rows="4"
+                  placeholder="Write your review..."
+                  required></textarea>
+
+            </div>
+
+            <button type="submit" class="btn">
+               Submit Review
+            </button>
+
+        </form>
+
+            <br>
+
             <div class="buttons">
 
                 <a th:href="@{/properties/edit/{id}(id=${property.id})}"
                    class="btn">
-
                     Edit
-
                 </a>
 
                 <a th:href="@{/properties/delete/{id}(id=${property.id})}"
                    class="btn delete">
-
                     Delete
-
                 </a>
 
                 <a th:href="@{/properties}"
                    class="btn secondary">
-
                     Back
-
                 </a>
 
             </div>
 
         </div>
+
+    </div>
+
+</section>
+
+<!-- ================= CUSTOMER REVIEWS ================= -->
+
+<section class="details-section">
+
+    <h2>Customer Reviews</h2>
+
+    <div th:if="${#lists.isEmpty(reviews)}">
+
+        <p>No reviews available.</p>
+
+    </div>
+
+    <div th:each="review : ${reviews}"
+         class="review-card">
+
+        <h3 th:text="${review.userName}"></h3>
+
+        <p>
+
+            ⭐
+            <span th:text="${review.rating}"></span>/5
+
+        </p>
+
+        <p th:text="${review.comment}"></p>
+
+        <small>
+
+            Reviewed on
+
+            <span th:text="${review.reviewDate}"></span>
+
+        </small>
 
     </div>
 

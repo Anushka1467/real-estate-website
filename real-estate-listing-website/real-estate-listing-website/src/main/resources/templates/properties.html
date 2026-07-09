@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
-<html lang="en"></html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 
 <head>
 
@@ -18,11 +17,13 @@
 
 <body>
 
+<!-- NAVBAR -->
+
 <nav class="navbar">
 
     <a th:href="@{/}" class="logo">
         <i class="fa-solid fa-house"></i>
-            RealEstate
+        RealEstate
     </a>
 
     <ul>
@@ -39,6 +40,8 @@
 
 </nav>
 
+<!-- PROPERTIES -->
+
 <section class="properties-section">
 
     <div class="heading">
@@ -50,6 +53,43 @@
         </a>
 
     </div>
+
+    <!-- Search & Filter -->
+
+    <div class="search-filter">
+
+        <form th:action="@{/properties/search}" method="get">
+
+            <input
+                    type="text"
+                    name="keyword"
+                    placeholder="Search by title or city">
+
+            <select name="propertyType">
+
+                <option value="All">All Types</option>
+
+                <option value="Apartment">Apartment</option>
+
+                <option value="Villa">Villa</option>
+
+                <option value="House">House</option>
+
+                <option value="Plot">Plot</option>
+
+            </select>
+
+            <button type="submit" class="btn">
+
+                Search
+
+            </button>
+
+        </form>
+
+    </div>
+
+    <!-- Property Cards -->
 
     <div class="property-container">
 
@@ -73,17 +113,47 @@
 
                 <p>
 
-                     <strong>₹ </strong>
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
 
-                     <span th:text="${#numbers.formatDecimal(property.price,0,'COMMA',0,'POINT')}"></span>
+                    <span th:text="${#numbers.formatDecimal(property.price,0,'COMMA',0,'POINT')}"></span>
 
                 </p>
 
                 <p>
 
-                    <strong>Type : </strong>
+                    <i class="fa-solid fa-building"></i>
 
                     <span th:text="${property.propertyType}"></span>
+
+                </p>
+
+                <p>
+
+                    <i class="fa-solid fa-bed"></i>
+
+                    <span th:text="${property.bedrooms}"></span>
+
+                    Bedrooms
+
+                </p>
+
+                <p>
+
+                    <i class="fa-solid fa-bath"></i>
+
+                    <span th:text="${property.bathrooms}"></span>
+
+                    Bathrooms
+
+                </p>
+
+                <p>
+
+                    <i class="fa-solid fa-ruler-combined"></i>
+
+                    <span th:text="${property.area}"></span>
+
+                    sq ft
 
                 </p>
 
@@ -91,17 +161,23 @@
 
                     <a th:href="@{/properties/{id}(id=${property.id})}"
                        class="btn">
+
                         View
+
                     </a>
 
                     <a th:href="@{/properties/edit/{id}(id=${property.id})}"
                        class="btn secondary">
+
                         Edit
+
                     </a>
 
                     <a th:href="@{/properties/delete/{id}(id=${property.id})}"
                        class="btn delete">
+
                         Delete
+
                     </a>
 
                 </div>

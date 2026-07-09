@@ -44,11 +44,25 @@ public class PropertyServiceImpl implements PropertyService {
 
     @Override
     public List<Property> searchByCity(String city) {
-        return propertyRepository.findByCity(city);
+        return propertyRepository.findByCityContainingIgnoreCase(city);
     }
 
     @Override
     public List<Property> searchByTitle(String title) {
         return propertyRepository.findByTitleContainingIgnoreCase(title);
+    }
+
+    @Override
+    public List<Property> search(String keyword) {
+        return propertyRepository
+                .findByTitleContainingIgnoreCaseOrCityContainingIgnoreCase(
+                        keyword,
+                        keyword
+                );
+    }
+
+    @Override
+    public List<Property> filterByPropertyType(String propertyType) {
+        return propertyRepository.findByPropertyTypeIgnoreCase(propertyType);
     }
 }

@@ -9,7 +9,14 @@ import java.util.List;
 @Repository
 public interface PropertyRepository extends MongoRepository<Property, String> {
 
-    List<Property> findByCity(String city);
+    List<Property> findByCityContainingIgnoreCase(String city);
 
     List<Property> findByTitleContainingIgnoreCase(String title);
+
+    List<Property> findByPropertyTypeIgnoreCase(String propertyType);
+
+    List<Property> findByTitleContainingIgnoreCaseOrCityContainingIgnoreCase(
+            String title,
+            String city
+    );
 }

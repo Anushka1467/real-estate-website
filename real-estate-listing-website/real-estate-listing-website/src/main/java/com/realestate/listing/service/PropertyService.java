@@ -17,8 +17,16 @@ public interface PropertyService {
 
     void deleteProperty(String id);
 
+    // Search by City
     List<Property> searchByCity(String city);
 
+    // Search by Title
     List<Property> searchByTitle(String title);
+
+    // Search by Title OR City
+    List<Property> search(String keyword);
+
+    // Filter by Property Type
+    List<Property> filterByPropertyType(String propertyType);
 
 }
